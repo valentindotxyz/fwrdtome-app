@@ -10,7 +10,8 @@
         "vlucas/phpdotenv": "~2.2",
         "illuminate/mail": "^5.2",
         "palanik/lumen-cors": "dev-master",
-        "ramsey/uuid": "^3.4"
+        "ramsey/uuid": "^3.4",
+        "google/recaptcha": "~1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
