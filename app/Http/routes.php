@@ -32,7 +32,7 @@ $app->post('/', function(Request $request)
         'status' => 'OK'
     ]);
 
-    return redirect('/api-' . $apiKey->uuid);
+    return redirect('/api-' . $apiKey->uuid, 302, [], true);
 });
 
 $app->get('/client', function (Request $request) use ($app)
