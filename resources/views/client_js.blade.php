@@ -1,5 +1,5 @@
 var xhr = new XMLHttpRequest();
-xhr.open('POST', '{{ getenv("APP_URL") }}/send');
+xhr.open('POST', '{{ getenv("APP_ROBOT_URL") }}/send');
 xhr.setRequestHeader('Content-Type', 'application/json');
 xhr.onload = function() {
     if (xhr.status === 200) {
