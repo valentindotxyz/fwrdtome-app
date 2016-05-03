@@ -14,7 +14,7 @@
         </div>
         <div class="row uniform">
             <div class="6u$ 12u$(xsmall)">
-                <button type="submit" class="button icon fa-envelope-o">GET MY FREE BOOKMARKLET</button>
+                <button type="submit" class="button icon fa-envelope-o">START SENDING LINKS (IT'S FREE!)</button>
             </div>
         </div>
     </form>
