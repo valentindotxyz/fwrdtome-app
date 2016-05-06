@@ -2,24 +2,26 @@
 
 @section('content')
     <h1>Send web pages to your inbox easily!</h1>
-    <h2>With a little Bookmarklet, send any web page to your inbox in just a click!</h2>
+    <h2 style="margin-bottom: 16px;">With a little Bookmarklet, send any web page to your inbox in just a click!</h2>
+    <p><strong>NEW</strong>: Looking for the Google Chrome Extension version? <a href="https://chrome.google.com/webstore/detail/fwrdtome/jhlipdcjclnkibfkjchlapkjhlbpbipf?hl=fr" target="_blank">Here it is!</a></p>
 
     <br />
 
     <form method="POST">
+        <h3 class="text-center">Subscribe here, it's totally free!</h3>
         <div class="row uniform">
-            <div class="6u$ 12u$(xsmall)">
+            <div class="12u$ 12u$(xsmall)">
                 <input type="email" name="email" id="email" placeholder="Email address*" required>
             </div>
         </div>
         <div class="row uniform">
-            <div class="6u$ 12u$(xsmall)">
+            <div class="12u$ 12u$(xsmall)">
                 <div class="g-recaptcha" data-sitekey="6Lfj9R4TAAAAAArBUavOunoPGJfXKooS0Wgky38F"></div>
             </div>
         </div>
         <div class="row uniform">
-            <div class="6u$ 12u$(xsmall)">
-                <button type="submit" class="button icon fa-envelope-o">START SENDING!</button>
+            <div class="12u$ 12u$(xsmall)">
+                <button type="submit" class="button special icon fa-envelope-o">START SENDING!</button>
             </div>
         </div>
     </form>
