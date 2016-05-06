@@ -28,7 +28,7 @@
 
     <br /><br />
 
-    <h2 style="text-align: center;">Questions?</h2>
+    <h2 style="text-align: center; font-size: 2em;">Questions?</h2>
 
     <br />
 
@@ -58,7 +58,8 @@
         <div class="6u 12u(small)">
             <blockquote>
                 <strong>"The service doesn't fit my needs. Any way to unsubscribe?"</strong><br />
-                I'm sad to see you go but sure! <a href="mailto:&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;">Click here</a> to unsubscribe.
+                I'm sad to see you go but sure!<br />
+                <a href="mailto:&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;">Click here</a> to unsubscribe.
             </blockquote>
         </div>
     </div>

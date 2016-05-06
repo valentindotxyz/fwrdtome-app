@@ -58,7 +58,8 @@
                 </p>
             </section>
             <ul class="copyright">
-                <li>Made by <a href="https://valentin.xyz">Valentin Polo</a> in Lille, France.</li>
+                <li>Made by <a href="https://valentin.xyz" target="_blank">Valentin Polo</a> in Lille, France.</li>
+                <li>Available on <a href="https://github.com/VP42/fwrdto.me" target="_blank">Valentin Polo</a> Github.</li>
             </ul>
         </div>
     </footer>
