@@ -8,7 +8,7 @@
     <br />
 
     <form method="POST">
-        <h3 class="text-center">Get your bookmarklet, it's free!</h3>
+        <h3 class="text-center">Get your bookmarklet!</h3>
         <div class="row uniform">
             <div class="12u$ 12u$(xsmall)">
                 <input type="email" name="email" id="email" placeholder="Email address*" required>
