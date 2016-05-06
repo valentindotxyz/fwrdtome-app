@@ -18,9 +18,10 @@ class ChromeController extends Controller
 
         $emailCheck = str_random(21);
 
-        $apiKey = ApiKey::where('email', $request->get('email'))->first();
+        $apiKey = ApiKey::where('email', $request->get('email'))->where('type', 'CHROME')->first();
         if ($apiKey) {
             $apiKey->email_retries++;
+            $apiKey->email_check = $emailCheck;
             $apiKey->save();
         } else {
             $apiKey = ApiKey::create([

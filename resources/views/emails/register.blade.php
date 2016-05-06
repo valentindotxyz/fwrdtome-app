@@ -75,7 +75,7 @@
         <td class="container" width="600" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;" valign="top">
             <div class="content" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; max-width: 600px; display: block; margin: 0 auto; padding: 20px;">
                 <p style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 28px; font-weight: bold; text-align: center;">
-                    Fwrdto.me
+                    Fwrdto&#8203;.&#8203;me
                 </p>
                 <table class="main" width="100%" cellpadding="0" cellspacing="0" itemprop="action" itemscope itemtype="http://schema.org/ConfirmAction" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; border-radius: 3px; background-color: #fff; margin: 0; border: 1px solid #e9e9e9;" bgcolor="#fff">
                     <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
@@ -87,7 +87,7 @@
                                         Hi!<br /><br />
                                         Thanks for subscribing to Fwrdto&#8203;.&#8203;me!<br /><br />
                                         Before using the service, we need you to confirm your email address:<br />
-                                        <a href="{{ url("confirm/$verificationCode") }}">{{ url("confirm/$verificationCode") }}</a>
+                                        <a href="{{ env('APP_URL') . "/confirm/$verificationCode" }}">{{ env('APP_URL') . "/confirm/$verificationCode" }}</a>
                                     </td>
                                 </tr>
                                 <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
