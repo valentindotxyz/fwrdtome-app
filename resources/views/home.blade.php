@@ -36,7 +36,7 @@
         <div class="6u">
             <blockquote>
                 <strong>"How does this work?"</strong><br />
-                Once subscribed, you'll get a link to drag-n-drop to you browser favorite's bar. Anytime you'll want to send a link to your inbox, click this link and boom!
+                Once subscribed, you'll get a bookmarklet to drag-n-drop to you browser bookmarks bar. Everytime you'll want to send a link to your inbox, click the bookmarklet and an email will be on its way!
             </blockquote>
         </div>
         <div class="6u 12u(small)">
