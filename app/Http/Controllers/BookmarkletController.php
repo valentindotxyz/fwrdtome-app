@@ -29,6 +29,7 @@ class BookmarkletController extends Controller
 
         $apiKey = ApiKey::create([
             'email' => $request->get('email'),
+            'type' => 'BOOKMARKLET',
             'uuid' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
             'status' => 'OK'
         ]);
