@@ -24,3 +24,15 @@ footer#footer {
 .text-center {
     text-align: center;
 }
+#hints {
+    text-align: center;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+#hints strong {
+    font-weight: 600;
+}

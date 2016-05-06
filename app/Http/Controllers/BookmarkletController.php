@@ -22,19 +22,43 @@ class BookmarkletController extends Controller
         if (!$request->has('email') || empty($request->get('email')))
             return redirect('/', 302, [], env('APP_HTTPS'));
 
-        $recaptcha = new \ReCaptcha\ReCaptcha(env('APP_CAPTCHA'));
-        $check = $recaptcha->verify($request->get('g-recaptcha-response'));
-        if (!$check->isSuccess())
-            abort(401, "Could not check spam status.");
+//        $recaptcha = new \ReCaptcha\ReCaptcha(env('APP_CAPTCHA'));
+//        $check = $recaptcha->verify($request->get('g-recaptcha-response'));
+//        if (!$check->isSuccess())
+//            abort(401, "Could not check spam status.");
 
-        $apiKey = ApiKey::create([
-            'email' => $request->get('email'),
-            'type' => 'BOOKMARKLET',
-            'uuid' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
-            'status' => 'OK'
-        ]);
+        $emailCheck = str_random(21);
 
-        return redirect('/bookmarklet/' . $apiKey->uuid, 302, [], env('APP_HTTPS'));
+        $apiKey = ApiKey::where('email', $request->get('email'))->where('type', 'BOOKMARKLET')->first();
+
+        if ($apiKey)
+        {
+            $apiKey->email_retries++;
+            if ($apiKey->email_retries < 3)
+                $apiKey->email_check = $emailCheck;
+
+            $apiKey->save();
+        }
+        else
+        {
+            $apiKey = ApiKey::create([
+                'email' => $request->get('email'),
+                'email_check' => $emailCheck,
+                'type' => 'BOOKMARKLET',
+                'uuid' => \Ramsey\Uuid\Uuid::uuid4()->toString(),
+                'status' => 'NEED_CHECK'
+            ]);
+        }
+
+        if ($apiKey->email_retries < 3)
+            Mailer::sendRegister($request->get('email'), $emailCheck);
+
+        return redirect('/confirm-email', 302, [], env('APP_HTTPS'));
+    }
+
+    public function confirmEmail(Request $request)
+    {
+        return view('confirm_email_from_bookmarklet');
     }
 
     public function getBookmarklet($apiKey)
@@ -45,7 +69,7 @@ class BookmarkletController extends Controller
         return view('bookmarklet')->with('apiKey', $apiKey);
     }
 
-    public function confirm(Request $request, $verificationCode)
+    public function confirm($verificationCode)
     {
         $apiKey = ApiKey::where('email_check', $verificationCode)->first();
 
@@ -55,7 +79,8 @@ class BookmarkletController extends Controller
         $apiKey->status = 'OK';
         $apiKey->save();
 
-        return view('confirmation_chrome');
+        return view('confirmation_' . strtolower($apiKey->type))
+            ->with('apiKey', $apiKey->uuid);
     }
 
     public function sendWithAJAX(Request $request)

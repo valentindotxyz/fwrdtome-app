@@ -49,20 +49,22 @@
         </div>
     </div>
 
-    <footer id="footer">
-        <div class="inner">
-            <section>
-                <h2>Contact me!</h2>
-                <p>
-                    You can send an email to <a href='mailto:&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;'>&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;</a> anytime!
-                </p>
-            </section>
-            <ul class="copyright">
-                <li>Made by <a href="https://valentin.xyz" target="_blank">Valentin Polo</a> in Lille, France.</li>
-                <li>Available on <a href="https://github.com/VP42/fwrdto.me" target="_blank">Github</a>.</li>
-            </ul>
-        </div>
-    </footer>
+    @if(\Illuminate\Support\Facades\Request::path() === '/')
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Contact me!</h2>
+                    <p>
+                        You can send an email to <a href='mailto:&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;'>&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;</a> anytime!
+                    </p>
+                </section>
+                <ul class="copyright">
+                    <li>Made by <a href="https://valentin.xyz" target="_blank">Valentin Polo</a> in Lille, France.</li>
+                    <li>Available on <a href="https://github.com/VP42/fwrdto.me" target="_blank">Github</a>.</li>
+                </ul>
+            </div>
+        </footer>
+    @endif
 
 </div>
 

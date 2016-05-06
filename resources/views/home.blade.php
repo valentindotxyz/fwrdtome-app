@@ -14,11 +14,11 @@
                 <input type="email" name="email" id="email" placeholder="Email address*" required>
             </div>
         </div>
-        <div class="row uniform">
-            <div class="12u$ 12u$(xsmall)">
-                <div class="g-recaptcha" data-sitekey="6Lfj9R4TAAAAAArBUavOunoPGJfXKooS0Wgky38F"></div>
-            </div>
-        </div>
+        {{--<div class="row uniform">--}}
+            {{--<div class="12u$ 12u$(xsmall)">--}}
+                {{--<div class="g-recaptcha" data-sitekey="6Lfj9R4TAAAAAArBUavOunoPGJfXKooS0Wgky38F"></div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <div class="row uniform">
             <div class="12u$ 12u$(xsmall)">
                 <button type="submit" class="button special icon fa-envelope-o">START SENDING!</button>

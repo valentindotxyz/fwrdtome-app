@@ -23,6 +23,7 @@ class ChromeController extends Controller
             $apiKey->email_retries++;
             $apiKey->email_check = $emailCheck;
             $apiKey->save();
+            
         } else {
             $apiKey = ApiKey::create([
                 'email' => $request->get('email'),

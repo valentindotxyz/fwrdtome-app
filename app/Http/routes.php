@@ -1,6 +1,9 @@
 <?php
 
+use App\Log;
+
 $app->get('/', 'BookmarkletController@home');
+$app->get('/confirm-email', 'BookmarkletController@confirmEmail');
 $app->post('/', 'BookmarkletController@register');
 $app->get('/bookmarklet/{apiUuid}', 'BookmarkletController@getBookmarklet');
 $app->post('/send', 'BookmarkletController@sendWithAJAX');
