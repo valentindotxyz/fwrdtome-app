@@ -1,9 +1,11 @@
 @extends('layout')
 
 @section('content')
-    <h1>Send web pages to your inbox easily!</h1>
-    <h2 style="margin-bottom: 16px;">With a little Bookmarklet, send any web page to your inbox in just a click!</h2>
-    <p><strong>NEW</strong>: Looking for the Google Chrome Extension version? <a href="https://chrome.google.com/webstore/detail/fwrdtome/jhlipdcjclnkibfkjchlapkjhlbpbipf?hl=fr" target="_blank">Here it is!</a></p>
+    <h1 class="text-center">Send web pages to your inbox easily!</h1>
+    <h2 class="text-center" style="margin-bottom: 14px;">Thanks to our Bookmarklet, send any web page to yourself in one click</h2>
+    <p class="text-center">
+        <strong>NEW</strong>: Looking for the Google Chrome Extension version? <a href="https://chrome.google.com/webstore/detail/fwrdtome/jhlipdcjclnkibfkjchlapkjhlbpbipf?hl=fr" target="_blank">Here it is!</a>
+    </p>
 
     <br />
 
@@ -20,11 +22,16 @@
             {{--</div>--}}
         {{--</div>--}}
         <div class="row uniform">
-            <div class="12u$ 12u$(xsmall)">
-                <button type="submit" class="button special icon fa-envelope-o">START SENDING!</button>
+            <div class="12u$ 12u$(xsmall) text-center">
+                <button type="submit" class="button special icon fa-envelope-o">GET MY BOOKMARKLET!</button><br />
             </div>
         </div>
     </form>
+
+    <p id="outlook">
+        Outlook, Hotmail and MSN users may not receive emails properly.<br />
+        While we do our best to ensure deliverability, please use any other email provider in the mean time.
+    </p>
 
     <br /><br />
 

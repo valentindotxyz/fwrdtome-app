@@ -15,3 +15,9 @@ $app->group(['prefix' => 'chrome'], function () use ($app) {
     $app->post('send', 'App\Http\Controllers\ChromeController@send');
     $app->post('ping', 'App\Http\Controllers\ChromeController@ping');
 });
+
+$app->group(['prefix' => 'dashboard'], function () use ($app) {
+    $app->get('/', function() {
+        return view('dashboard.home');
+    });
+});
