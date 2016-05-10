@@ -55,7 +55,7 @@
                 <section>
                     <h2>Contact me!</h2>
                     <p>
-                        You can send an email to <a href='mailto:&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;'>&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;</a> anytime!
+                        You can send an email to <a href="mailto:support@fwrdto.me">support@fwrdto.me</a> anytime!
                     </p>
                 </section>
                 <ul class="copyright">

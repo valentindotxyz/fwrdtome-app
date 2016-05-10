@@ -72,7 +72,7 @@
             <blockquote>
                 <strong>"The service doesn't fit my needs. Any way to unsubscribe?"</strong><br />
                 I'm sad to see you go but sure!<br />
-                <a href="mailto:&#102;&#119;&#114;&#100;&#116;&#111;&#109;&#101;&#64;&#118;&#97;&#108;&#101;&#110;&#116;&#105;&#110;&#46;&#120;&#121;&#122;">Click here</a> to unsubscribe.
+                <a href="mailto:unsubscribe@fwrdto.me">Click here</a> to unsubscribe.
             </blockquote>
         </div>
     </div>
