@@ -28,7 +28,7 @@
         </div>
     </form>
 
-    <p id="outlook">
+    <p id="outlook" style="display: none;">
         Outlook, Hotmail and MSN users may not receive emails properly.<br />
         While we do our best to ensure deliverability, please use any other email provider in the mean time.
     </p>
