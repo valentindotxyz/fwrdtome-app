@@ -1,19 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| Here you may define all of your model factories. Model factories give
-| you a convenient way to create models for testing and seeding your
-| database. Just tell the factory how a default model should look.
-|
-*/
+use App\Enums\ApiKeyStatuses;
+use App\Enums\ClientSources;
+use Ramsey\Uuid\Uuid;
 
-$factory->define(App\User::class, function ($faker) {
+$factory->define(App\ApiKey::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        'uuid' => Uuid::uuid4()->toString(),
+        'email' => $faker->unique()->safeEmail,
+        'status' => ApiKeyStatuses::OK,
+        'source' => ClientSources::CHROME
     ];
 });
