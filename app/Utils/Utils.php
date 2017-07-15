@@ -39,7 +39,7 @@ class Utils
 
     public static function getWebsiteTitle($url)
     {
-        $page = file_get_contents($url);
+        $page = @file_get_contents($url);
 
         if (!$page) {
             return "(no title)";
