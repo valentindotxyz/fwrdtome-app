@@ -50,7 +50,7 @@ class CreateApiKey
             ]);
         }
 
-        if ($apiKey->email_retries < 3) {
+        if (!ApiKey::canBypassVerificationCode($this->source) && $apiKey->email_retries < 3) {
             dispatch(new SendVerificationCode($apiKey, $verificationCode));
         }
 
