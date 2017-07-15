@@ -48,8 +48,6 @@ class Utils
         $matches = [];
 
         if (preg_match('/<title>(.*?)<\/title>/', $page, $matches)) {
-            Log::info($matches[1]);
-
             return $matches[1];
         }
 

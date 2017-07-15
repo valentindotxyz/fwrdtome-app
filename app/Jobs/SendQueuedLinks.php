@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\ApiKey;
 use App\Log;
 use App\Mail\QueuedLinksSent;
+use App\Utils\Utils;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\SerializesModels;
@@ -38,6 +39,8 @@ class SendQueuedLinks implements ShouldQueue
                 'link' => $link->link,
                 'thumbnail' => $link->thumbnail
             ]);
+
+            \Illuminate\Support\Facades\Log::info("[APP] Link queued: " . $link);
         }
     }
 }

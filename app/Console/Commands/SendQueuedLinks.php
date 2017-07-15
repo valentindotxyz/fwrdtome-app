@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\ApiKey;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class SendQueuedLinks extends Command
 {
@@ -50,6 +51,8 @@ class SendQueuedLinks extends Command
         }
 
         $progressBar->finish();
+
+        Log::info('[CRON] Queued links sent');
 
         $this->info(' Queued links sent!');
     }

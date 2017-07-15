@@ -53,5 +53,7 @@ class SendUniqueLink implements ShouldQueue
             'link' => $this->link,
             'thumbnail' => $thumbnail
         ]);
+
+        \Illuminate\Support\Facades\Log::info("[APP] Link sent: " . $this->link);
     }
 }
