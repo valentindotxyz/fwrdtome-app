@@ -29,7 +29,7 @@ class UniqueLinkSent extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->subject($this->title)
-            ->view('emails.unique-link')
-            ->text('emails.unique-link_plain');
+            ->view('emails.unique-link');
+//            ->text('emails.unique-link_plain');
     }
 }

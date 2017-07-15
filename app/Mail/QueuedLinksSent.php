@@ -30,8 +30,8 @@ class QueuedLinksSent extends Mailable implements ShouldQueue
         $dateTime = new DateTime();
 
         $return = $this->subject("Your links for " . $dateTime->format("F jS, Y"))
-            ->view('emails.multiple-links')
-            ->text('emails.multiple-links_plain');
+            ->view('emails.multiple-links');
+//            ->text('emails.multiple-links_plain');
 
         foreach ($this->links as $link) {
             $link->forceDelete();

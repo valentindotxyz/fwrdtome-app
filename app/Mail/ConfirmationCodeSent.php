@@ -21,7 +21,7 @@ class ConfirmationCodeSent extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->subject("Activate your account on " . env('APP_NAME'))
-            ->view('emails.confirm-email')
-            ->text('emails.confirm-email_plain');
+            ->view('emails.confirm-email');
+//            ->text('emails.confirm-email_plain');
     }
 }
