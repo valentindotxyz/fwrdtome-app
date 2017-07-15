@@ -10,7 +10,7 @@ class LegacyController extends Controller
 {
     public function send(Request $request)
     {
-        if ($request->has(['api', 'url'])) {
+        if (!$request->has(['api', 'url'])) {
             return response()->json("Missing data", 422);
         }
 
