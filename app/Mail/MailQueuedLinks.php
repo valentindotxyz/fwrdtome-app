@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Collection;
 
-class QueuedLinksSent extends Mailable implements ShouldQueue
+class MailQueuedLinks extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ApiKey;
-use App\Jobs\SendUniqueLink;
+use App\Jobs\SendLink;
 use Illuminate\Http\Request;
 
 class LegacyController extends Controller
@@ -21,6 +21,6 @@ class LegacyController extends Controller
             return response()->json("Invalid API key", 401);
         }
 
-        $this->dispatch(new SendUniqueLink($apiKey, $request->get('url'), false));
+        $this->dispatch(new SendLink($apiKey, $request->get('url'), false, false));
     }
 }

@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\ApiKey;
-use App\Enums\ApiKeyStatuses;
 use App\Enums\ClientSources;
 use App\Jobs\CreateApiKey;
-use App\Jobs\QueueLink;
-use App\Jobs\SendUniqueLink;
-use App\Jobs\SendVerificationCode;
+use App\Jobs\SendLink;
 use App\Jobs\UpdateEmailAddress;
 use Illuminate\Http\Request;
 
@@ -46,12 +43,10 @@ class ApiController extends Controller
     {
         $apiKey = ApiKey::where('uuid', $request->get('api-key'))->first();
 
-        // Send link now or queue it depending on API key settings...
-        if ($request->get('queued', false) === "yes") {
-            $this->dispatch(new QueueLink($apiKey, $request->get('link'), $request->get('preview', false) === "yes"));
-        } else {
-            $this->dispatch(new SendUniqueLink($apiKey, $request->get('link'), $request->get('preview', false) === "yes"));
-        }
+        $withPreview = $request->get('preview', false) === "yes";
+        $shouldQueue = $request->get('queued', false) === "yes";
+
+        $this->dispatch(new SendLink($apiKey, $request->get('link'), $withPreview, $shouldQueue));
 
         // Return an 1x1 pixel as the Bookmarklet uses an <img /> tag to work…
         if ($apiKey->source === ClientSources::BOOKMARKLET) {

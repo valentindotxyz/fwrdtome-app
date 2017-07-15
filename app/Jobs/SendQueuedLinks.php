@@ -4,8 +4,7 @@ namespace App\Jobs;
 
 use App\ApiKey;
 use App\Log;
-use App\Mail\QueuedLinksSent;
-use App\Utils\Utils;
+use App\Mail\MailQueuedLinks;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\SerializesModels;
@@ -29,7 +28,7 @@ class SendQueuedLinks implements ShouldQueue
     public function handle()
     {
         // Send the link by email...
-        Mail::to($this->apiKey->email)->send(new QueuedLinksSent($this->links));
+        Mail::to($this->apiKey->email)->send(new MailQueuedLinks($this->links));
 
         // Log the link (for legal purposes only)…
         foreach ($this->links as $link) {

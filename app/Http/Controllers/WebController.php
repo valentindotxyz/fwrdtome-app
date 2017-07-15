@@ -6,10 +6,7 @@ use App\ApiKey;
 use App\Enums\ApiKeyStatuses;
 use App\Enums\ClientSources;
 use App\Jobs\CreateApiKey;
-use App\Jobs\SendVerificationCode;
-use App\Mail\ConfirmationCodeSent;
 use Illuminate\Http\Request;
-use Ramsey\Uuid\Uuid;
 
 class WebController extends Controller
 {

@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\ApiKey;
-use App\Mail\ConfirmationCodeSent;
+use App\Mail\MailConfirmationCode;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -25,6 +25,6 @@ class SendVerificationCode
 
     public function handle()
     {
-        Mail::to($this->apiKey->email)->send(new ConfirmationCodeSent($this->verificationCode));
+        Mail::to($this->apiKey->email)->send(new MailConfirmationCode($this->verificationCode));
     }
 }
