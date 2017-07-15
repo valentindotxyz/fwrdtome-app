@@ -31,6 +31,9 @@ class CheckBeforeSend
             return response()->json("Invalid source", 403);
         }
 
+        $sentry = app('sentry');
+        $sentry->user_context(['id' => $request->get('api-key'), 'client' => $apiKey->source]);
+
         return $next($request);
     }
 }

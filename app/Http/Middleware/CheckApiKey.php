@@ -17,6 +17,11 @@ class CheckApiKey
             return response()->json("Invalid API key", 403);
         }
 
+        if (app()->bound('sentry')) {
+            $sentry = app('sentry');
+            $sentry->user_context(['id' => $request->get('api-key')]);
+        }
+
         return $next($request);
     }
 }

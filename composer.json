@@ -12,6 +12,7 @@
         "league/csv": "^8.0",
         "pda/pheanstalk": "~3.0",
         "ramsey/uuid": "^3.6",
+        "sentry/sentry-laravel": "^0.7.0",
         "spatie/browsershot": "^2.0"
     },
     "require-dev": {
