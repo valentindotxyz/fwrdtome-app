@@ -36,7 +36,10 @@ class SendQueuedLinks implements ShouldQueue
                 'api_key_id' => $this->apiKey->id,
                 'title' => $link->title,
                 'link' => $link->link,
-                'thumbnail' => $link->thumbnail
+                'thumbnail' => $link->thumbnail,
+                'from_queue' => true,
+                'created_at' => $link->created_at,
+                'updated_at' => $link->updated_at
             ]);
 
             \Illuminate\Support\Facades\Log::info("[APP] Link queued: " . $link);
