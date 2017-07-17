@@ -9,7 +9,7 @@
                         <h1 class="page-title__title">Drag and drop the button below to your bookmarks bar!</h1>
                         <br /><br />
                         <p class="page-title__subtitle lead">
-                            <a href='javascript: !function(){var e=document.createElement("img");e.setAttribute("src", "{{ env('APP_URL') }}/api/send?api-key={{ $apiKey }}&source={{ \App\Enums\ClientSources::BOOKMARKLET }}{!! $options !!}&link="+encodeURIComponent(window.location.href));e.style.display="none";document.body.appendChild(e);alert("Link on its way to your inbox!")}();' title="{{ env('APP_NAME') }}" class="bookmarklet">Send to my inbox</a>
+                            <a href='javascript: !function(){var e=document.createElement("img");e.setAttribute("src", "{{ env('APP_URL') }}/api/send?api-key={{ $apiKey }}&source={{ \App\Enums\ClientSources::BOOKMARKLET }}{!! $options !!}&link="+encodeURIComponent(window.location.href)+"&title="+encodeURIComponent(window.document.title));e.style.display="none";document.body.appendChild(e);alert("Link on its way to your inbox!")}();' title="{{ env('APP_NAME') }}" class="bookmarklet">Send to my inbox</a>
                         </p><br />
                         <p class="hints">
                             Help to display the bookmarks bar on <a href="https://support.google.com/chrome/answer/95745?hl=en" target="_blank">Chrome</a>, <a href="https://support.mozilla.org/en-US/kb/bookmarks-toolbar-display-favorite-websites" target="_blank"> Firefox</a> and <a href="http://help.opera.com/FreeBSD/11.60/en/toolbars.html" target="_blank">Opera</a>.<br />

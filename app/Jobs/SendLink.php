@@ -18,12 +18,13 @@ class SendLink implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public $apiKey, $link, $preview, $queued;
+    public $apiKey, $link, $title, $preview, $queued;
 
-    public function __construct(ApiKey $apiKey, string $link, bool $preview, bool $queued)
+    public function __construct(ApiKey $apiKey, string $link, string $title, bool $preview, bool $queued)
     {
         $this->apiKey = $apiKey;
         $this->link = $link;
+        $this->title = $title;
         $this->preview = $preview;
         $this->queued = $queued;
     }
@@ -37,7 +38,7 @@ class SendLink implements ShouldQueue
         }
 
         // Retrieved the website's title…
-        $title = Utils::getWebsiteTitle($this->link);
+        $title = $this->title !== "NONE" ? $this->title : Utils::getWebsiteTitle($this->link);
 
         if ($this->queued) {
             QueuedLink::create([

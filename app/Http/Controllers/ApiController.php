@@ -46,7 +46,7 @@ class ApiController extends Controller
         $withPreview = $request->get('preview', false) === "yes";
         $shouldQueue = $request->get('queued', false) === "yes";
 
-        $this->dispatch(new SendLink($apiKey, $request->get('link'), $withPreview, $shouldQueue));
+        $this->dispatch(new SendLink($apiKey, $request->get('link'), $request->get('title', "NONE"), $withPreview, $shouldQueue));
 
         // Return an 1x1 pixel as the Bookmarklet uses an <img /> tag to work…
         if ($apiKey->source === ClientSources::BOOKMARKLET) {
