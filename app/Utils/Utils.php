@@ -2,6 +2,8 @@
 
 namespace App\Utils;
 
+use DOMDocument;
+use DOMXPath;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
@@ -39,18 +41,14 @@ class Utils
 
     public static function getWebsiteTitle($url)
     {
-        $page = @file_get_contents($url);
+        try {
+            $document = new DOMDocument();
+            @$document->loadHTMLFile($url);
+            $xpath = new DOMXPath($document);
 
-        if (!$page) {
+            return str_replace("\n", " ", trim($xpath->query('//title')->item(0)->nodeValue));
+        } catch (Exception $e) {
             return "(no title)";
         }
-
-        $matches = [];
-
-        if (preg_match('/<title>(.*?)<\/title>/', $page, $matches)) {
-            return $matches[1];
-        }
-
-        return "(no title)";
     }
 }

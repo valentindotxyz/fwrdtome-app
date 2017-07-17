@@ -1,6 +1,9 @@
 <?php
 
 Route::get('/', 'WebController@home');
+Route::get('/test', function(Request $request) {
+    dd(\App\Utils\Utils::getWebsiteTitle("https://jmeter-plugins.org"));
+});
 Route::get('/get-for-all-browser', 'WebController@getGetForAllBrowsers');
 Route::post('/get-for-all-browser', 'WebController@postGetForAllBrowsers');
 Route::get('/confirm-email-address', 'WebController@getConfirmEmailAddress');
