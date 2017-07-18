@@ -1121,8 +1121,6 @@ label {
     background-color: #282828; }
   .btn--apple {
     opacity: 0.2;
-    cursor: not-allowed;
-    pointer-events: none;
     background-color: #3d3d3d; }
 
 .btn--lg {
