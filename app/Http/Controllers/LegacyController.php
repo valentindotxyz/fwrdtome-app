@@ -21,6 +21,6 @@ class LegacyController extends Controller
             return response()->json("Invalid API key", 401);
         }
 
-        $this->dispatch(new SendLink($apiKey, $request->get('url'), $request->get('title'), false, false));
+        $this->dispatch(new SendLink($apiKey, $request->get('url'), $request->get('title', 'NONE'), false, false));
     }
 }
