@@ -151,8 +151,8 @@
                 <a href="/get-for-all-browser" class="btn btn--x-large btn--icon btn--color">
                     <i class="ui-computer-imac"></i><span>I'm using Firefox, Safari, IE...</span>
                 </a>
-                <a href="/#" class="btn btn--x-large btn--icon btn--apple" disabled="disabled">
-                    <i class="ui-apple"></i><span>I'm using iOS (soon!)</span>
+                <a href="https://itunes.apple.com/fr/app/fwrdto-me/id1259806370?l=en&mt=8" class="btn btn--x-large btn--icon btn--apple">
+                    <i class="ui-apple"></i><span>I'm using iOS</span>
                 </a>
             </div>
 
