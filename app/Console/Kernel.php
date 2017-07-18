@@ -27,7 +27,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        // Send queued links everyday
         $schedule->command("links:send")->dailyAt("06:00")->timezone("UTC");
+
+        // Used to combat memory creep issues that I can't solve otherwise at this moment.
+        $schedule->command('queue:restart')->hourly();
     }
 
     /**
