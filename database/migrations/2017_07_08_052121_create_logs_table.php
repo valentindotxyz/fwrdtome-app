@@ -14,10 +14,10 @@ class CreateLogsTable extends Migration
     public function up()
     {
         Schema::create('logs', function (Blueprint $table) {
-            $table->string('link', 255);
+            $table->string('link', 600);
             $table->integer('api_key_id')->unsigned();
             $table->foreign('api_key_id')->references('id')->on('api_keys');
-            $table->string('title', 255);
+            $table->string('title', 600);
             $table->string('thumbnail', 255);
             $table->timestamps();
         });

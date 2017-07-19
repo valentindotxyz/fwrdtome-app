@@ -25,7 +25,7 @@ class UpdateLogsTableWithFromQueueField extends Migration
      */
     public function down()
     {
-        Schema::table('users', function($table) {
+        Schema::table('logs', function($table) {
             $table->dropColumn('from_queue');
         });
     }
