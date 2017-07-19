@@ -18,6 +18,13 @@ return [
 
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
+
+    'ses' => [
+        'key' => env('AWS_SES_KEY'),
+        'secret' => env('AWS_SES_SECRET'),
+        'region' => env('AWS_SES_REGION'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Address

@@ -34,13 +34,6 @@ return [
             'driver' => 'sync',
         ],
 
-        'database' => [
-            'driver' => 'database',
-            'table' => 'jobs',
-            'queue' => 'default',
-            'retry_after' => 90,
-        ],
-
         'beanstalkd' => [
             'driver' => 'beanstalkd',
             'host' => 'localhost',
@@ -51,18 +44,11 @@ return [
 
         'sqs' => [
             'driver' => 'sqs',
-            'key' => 'your-public-key',
-            'secret' => 'your-secret-key',
-            'prefix' => 'https://sqs.us-east-1.amazonaws.com/your-account-id',
-            'queue' => 'your-queue-name',
-            'region' => 'us-east-1',
-        ],
-
-        'redis' => [
-            'driver' => 'redis',
-            'connection' => 'default',
-            'queue' => 'default',
-            'retry_after' => 90,
+            'key' => env('AWS_API_KEY'),
+            'secret' => env('AWS_API_SECRET'),
+            'prefix' => env('AWS_SQS_ENDPOINT'),
+            'queue' => env('AWS_SQS_QUEUE'),
+            'region' => env('AWS_SQS_REGION'),
         ],
 
     ],
