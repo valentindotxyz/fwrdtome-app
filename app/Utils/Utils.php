@@ -20,7 +20,7 @@ class Utils
      */
     public static function getWebsiteThumbnail(string $url)
     {
-        return exec(env("NODE_PATH") . " " . env("SCREENSHOTER_PATH") . " $url " . env("SCREENSHOTER_DESTINATION_FOLDER"));
+        return exec("node " . env("SCREENSHOTER_PATH") . " $url " . env("SCREENSHOTER_DESTINATION_FOLDER"));
     }
 
     public static function getWebsiteTitle($url)
