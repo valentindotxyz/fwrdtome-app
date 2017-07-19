@@ -20,23 +20,7 @@ class Utils
      */
     public static function getWebsiteThumbnail(string $url)
     {
-        try
-        {
-            $thumbnailPath = Uuid::uuid4()->toString() . '.jpg';
-
-            Browsershot::url($url)
-                ->windowSize(1600, 900)
-                ->fit(Manipulations::FIT_CONTAIN, 1024, 768)
-                ->timeout(10)
-                ->save(storage_path("app/thumbnails/$thumbnailPath"));
-
-            return $thumbnailPath;
-        }
-
-        catch (Exception $e)
-        {
-            return "";
-        }
+        return exec("node " . env("SCREENSHOTER_PATH") . " $url " . env("SCREENSHOTER_DESTINATION_FOLDER"));
     }
 
     public static function getWebsiteTitle($url)

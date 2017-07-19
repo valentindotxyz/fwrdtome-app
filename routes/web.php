@@ -2,7 +2,7 @@
 
 Route::get('/', 'WebController@home');
 Route::get('/test', function(Request $request) {
-    dd(\App\Utils\Utils::getWebsiteTitle("https://jmeter-plugins.org"));
+    dd(exec("node " . env("SCREENSHOTER_PATH") . " medium.com " . env("SCREENSHOTER_DESTINATION_FOLDER")));
 });
 Route::get('/get-for-all-browser', 'WebController@getGetForAllBrowsers');
 Route::post('/get-for-all-browser', 'WebController@postGetForAllBrowsers');
