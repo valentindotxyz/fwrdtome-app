@@ -33,7 +33,7 @@ class SendLink implements ShouldQueue
     {
         // Retrieve the website's thumbnail…
         $thumbnail = "";
-        if ($this->preview) {
+        if ($this->preview && false) { // Quick hack to disable thumbnails for now…
             $thumbnail = Utils::getWebsiteThumbnail($this->link);
         }
 
