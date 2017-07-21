@@ -26,7 +26,7 @@ class JarvisController extends Controller
         $sendings = DB::table('logs')
             ->select(DB::raw('COUNT(api_key_id) AS `count`, DATE(created_at) AS date'))
             ->groupBy('date')
-            ->orderBy('date', 'DESC')
+            ->orderBy('date', 'ASC')
             ->get();
 
         return view('jarvis.dashboard', compact('subscriptions', 'subscriptionsBySources', 'latestSubscriptions', 'sendings'));
