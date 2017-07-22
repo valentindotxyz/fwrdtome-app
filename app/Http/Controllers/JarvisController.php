@@ -24,9 +24,7 @@ class JarvisController extends Controller
             ->select(DB::raw('COUNT(api_key_id) AS `count`, DATE(created_at) AS date'))
             ->groupBy('date')
             ->orderBy('date', 'ASC')
-            ->get()
-            ->reverse()
-            ->values();
+            ->get();
 
 //        $latestSubscriptions = DB::table('api_keys')
 //            ->select('email', 'status', 'source', 'created_at')
