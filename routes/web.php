@@ -10,6 +10,6 @@ Route::get('/confirm-email-address/{verificationCode}', 'WebController@getConfir
 Route::get('/send2', 'LegacyController@send');
 Route::post('/chrome/send', 'LegacyController@send');
 
-Route::prefix('jarvis')->group(function () {
+Route::prefix('jarvis')->middleware('auth.simple')->group(function () {
     Route::get('/', 'JarvisController@getDashboard');
 });
