@@ -9,7 +9,7 @@ class SimpleAuthentication
 {
     public function handle($request, Closure $next)
     {
-        if ($request->getUser() !== env('ADMIN_USER') && $request->getPassword() !== env('ADMIN_PASSWORD')) {
+        if ( (!env('ADMIN_USER', false) || env('ADMIN_PASSWORD', false)) || ($request->getUser() !== env('ADMIN_USER') && $request->getPassword() !== env('ADMIN_PASSWORD'))) {
             $headers = array('WWW-Authenticate' => 'Basic');
 
             return response('Unauthorized', 401, $headers);

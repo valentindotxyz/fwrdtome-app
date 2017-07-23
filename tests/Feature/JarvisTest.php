@@ -11,8 +11,6 @@ use Tests\TestCase;
 
 class JarvisTest extends TestCase
 {
-    const WEBSITE = "https://medium.com/@AIDANJCASEY/guiding-principles-for-an-evolutionary-software-architecture-b6dc2cb24680";
-
     public function testCannotAccessWithoutValidCredentials()
     {
         $response = $this->get("/jarvis");
