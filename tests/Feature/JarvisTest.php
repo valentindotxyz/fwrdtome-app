@@ -25,6 +25,10 @@ class JarvisTest extends TestCase
             'PHP_AUTH_PW' => env('ADMIN_PASSWORD')
         ]);
 
-        $response->assertStatus(200);
+        if (!env('ADMIN_USER', false) || !env('ADMIN_PASSWORD', false)) {
+            $response->assertStatus(401);
+        } else {
+            $response->assertStatus(200);
+        }
     }
 }
