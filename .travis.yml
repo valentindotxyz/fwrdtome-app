@@ -3,6 +3,9 @@ language: php
 php:
   - '7.0'
 
+services:
+  - mysql
+
 sudo: false
 
 before_script:
