@@ -13,5 +13,4 @@ before_script:
   - php artisan migrate --seed
 
 script:
-  - vendor/bin/phpmd app text codesize design naming unusedcode
-  - vendor/bin/phpunit --testdox --coverage-text tests
+  - vendor/bin/phpunit
