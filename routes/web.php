@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 Route::get('/', 'WebController@home');
 Route::get('/get-for-all-browser', 'WebController@getGetForAllBrowsers');
@@ -19,5 +20,9 @@ Route::prefix('jarvis')->middleware('auth.simple')->group(function () {
 
 // Github hooks…
 Route::post('/gh-hooks', function(Request $request) {
-    return $request->input('hook');
+    if ($request->input('pull_request.state', false) === "closed" && $request->input('pull_request.merged', false) === true) {
+        // Something to do here...
+    }
+
+    return response("Roger");
 });
