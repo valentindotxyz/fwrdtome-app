@@ -1,0 +1,17 @@
+language: php
+
+php:
+  - '7.0'
+
+sudo: false
+
+before_script:
+  - cp .env.travis .env
+  - mysql -e 'create database fwrdtome_test;'
+  - composer install --dev --prefer-source --no-interaction
+  - php artisan key:generate
+  - php artisan migrate --seed
+
+script:
+  - vendor/bin/phpmd app text codesize design naming unusedcode
+  - vendor/bin/phpunit --testdox --coverage-text tests

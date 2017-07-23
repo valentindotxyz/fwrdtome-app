@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\ApiKey;
 use App\Enums\ApiKeyStatuses;
 use App\Enums\ClientSources;
+use App\Jobs\SendLink;
+use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 
 class ApiTest extends TestCase
@@ -20,11 +22,14 @@ class ApiTest extends TestCase
 
     public function testRegisterFromChrome()
     {
+        Queue::fake();
+
         // No previous API key...
         $fakeEmail = 'fake_email_ios_' . rand(0, 100000) . '-' . rand(0, 100000) . '@doe.net';
         $previousApiKey = ApiKey::where('email', $fakeEmail)->first();
         $this->assertNull($previousApiKey);
 
+        // HTTP response...
         $response = $this->json('POST', '/api/register', [
             'email' => $fakeEmail,
             'source' => ClientSources::CHROME
@@ -60,6 +65,8 @@ class ApiTest extends TestCase
 
     public function testUpdateFromIOS()
     {
+        Queue::fake();
+
         // No previous API key...
         $apiKey = factory(ApiKey::class)->create();
         $apiKey->status = ApiKeyStatuses::OK;
@@ -107,32 +114,53 @@ class ApiTest extends TestCase
 
     public function testSendFromChrome()
     {
+        Queue::fake();
+
         $apiKey = factory(ApiKey::class)->create();
 
         $response = $this->json('GET', '/api/send', [
             'api-key' => $apiKey->uuid,
             'link' => self::WEBSITE,
+            'title' => self::WEBSITE . "_TITLE",
             'preview' => 'yes'
         ]);
+
+        Queue::assertPushed(SendLink::class, function ($job) use ($apiKey) {
+            return $job->apiKey->uuid === $apiKey->uuid
+                && $job->link === self::WEBSITE
+                && $job->title === self::WEBSITE . "_TITLE"
+                && $job->preview === true
+                && $job->queued === false;
+        });
 
         $response->assertStatus(200)->assertExactJson(["Link processed"]);
     }
 
     public function testSendQueuedFromChrome(ApiKey $apiKey = null, string $link = "")
     {
+        Queue::fake();
+
         if ($apiKey === null) {
             $apiKey = factory(ApiKey::class)->create();
         }
 
-        // Initial queued links number for the specified API key...
-        $initialCount = count($apiKey->queuedLinks);
+        $link = $link !== "" ? $link : self::WEBSITE;
 
         $response = $this->json('GET', '/api/send', [
             'api-key' => $apiKey->uuid,
-            'link' => $link !== "" ? $link : self::WEBSITE,
+            'link' => $link,
+            'title' => $link . "_TITLE",
             'queued' => 'yes',
             'preview' => 'yes'
         ]);
+
+        Queue::assertPushed(SendLink::class, function ($job) use ($apiKey, $link) {
+            return $job->apiKey->uuid === $apiKey->uuid
+                && $job->link === $link
+                && $job->title === $link . "_TITLE"
+                && $job->preview === true
+                && $job->queued === true;
+        });
 
         // Response 200...
         $response->assertStatus(200)->assertExactJson(["Link processed"]);
