@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-lg-6 col-md-5">
                     <h1 class="hero__title hero--boxed">Send any link to your inbox in just one click!</h1>
-                    <p class="hero__subtitle">With {{ env('APP_NAME') }} you can send yourself any link to your inbox with just a just click. You no longer need to open your favorite email client to save a link for future use!</p>
+                    <p class="hero__subtitle">With {{ env('APP_NAME') }} you can send yourself any link to your inbox with just one click. No need to open your favorite email client anymore, just click on a button and you're done!</p>
                     <div class="hero__btn-holder mt-30">
                         <a href="#start-using" class="btn btn--lg btn--color btn--icon rounded"><span><i class="ui-arrow-right"></i>Start using!</span></a>
                     </div>
@@ -30,7 +30,7 @@
                         </a>
                         <div class="feature__text">
                             <h3 class="feature__title">Easy to use</h3>
-                            <p class="feature__paragraph">Whether you're using Chrome or any web browser, send yourself a link in just a click. We promise, just one!</p>
+                            <p class="feature__paragraph">Whether you're using Chrome or any browser, send yourself a link with just a click. We promise, just one!</p>
                         </div>
                     </div>
                     <div class="feature text-center">
@@ -52,7 +52,7 @@
                             <i class="ui-clock feature__icon feature__icon--gradient-2"></i>
                         </a>
                         <div class="feature__text">
-                            <h3 class="feature__title">Queued links</h3>
+                            <h3 class="feature__title">Grouped links</h3>
                             <p class="feature__paragraph">Links can be grouped in one email sent everyday at the time you decide. You're so close to Inbox Zero, we do not want to be on your way ;) </p>
                         </div>
                     </div>
