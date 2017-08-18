@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\ApiKey;
+use App\Enums\Configurations;
 use App\Log;
 use App\Mail\MailUniqueLink;
 use App\QueuedLink;
@@ -38,9 +39,15 @@ class SendLink implements ShouldQueue
         }
 
         // Retrieved the website's title…
-        $title = $this->title !== "NONE" ? $this->title : Utils::getWebsiteTitle($this->link);
+        $title = $this->title !== "NONE" ? $this->title : $this->link;
 
-        if ($this->queued) {
+        // Determine if we should queue the link…
+        $shouldQueue = false;
+        if ($this->queued || Log::getSendingCountForToday() > intval(Utils::getConfigurationValueForKey(Configurations::MAX_SEND))) {
+            $shouldQueue = true;
+        }
+
+        if ($shouldQueue) {
             QueuedLink::create([
                 'api_key_id' => $this->apiKey->id,
                 'title' => $title,
@@ -48,7 +55,7 @@ class SendLink implements ShouldQueue
                 'thumbnail' => $thumbnail
             ]);
         } else {
-            // Send the link by email...
+            // Send the link by email…
             Mail::to($this->apiKey->email)->send(new MailUniqueLink($title, $this->link, $thumbnail));
 
             // Log the link (for legal purposes only)…
@@ -58,8 +65,6 @@ class SendLink implements ShouldQueue
                 'link' => $this->link,
                 'thumbnail' => $thumbnail
             ]);
-
-            \Illuminate\Support\Facades\Log::info("[APP] Link sent: " . $this->link);
         }
     }
 }

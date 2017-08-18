@@ -5,6 +5,7 @@ namespace App\Utils;
 use DOMDocument;
 use DOMXPath;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
 use Screen\Capture;
@@ -34,5 +35,10 @@ class Utils
         } catch (Exception $e) {
             return "(no title)";
         }
+    }
+
+    public static function getConfigurationValueForKey($key)
+    {
+        return DB::table('configurations')->where('key', $key)->first()->value;
     }
 }
