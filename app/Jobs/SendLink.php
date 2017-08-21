@@ -43,7 +43,7 @@ class SendLink implements ShouldQueue
 
         // Determine if we should queue the link…
         $shouldQueue = false;
-        if ($this->queued || Log::getSendingCountForToday() > intval(Utils::getConfigurationValueForKey(Configurations::MAX_SEND))) {
+        if ($this->queued || Log::sendingQuotaExceeded() || $this->apiKey->sendingQuotaExceeded()) {
             $shouldQueue = true;
         }
 
