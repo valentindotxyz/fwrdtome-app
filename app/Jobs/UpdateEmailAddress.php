@@ -35,7 +35,8 @@ class UpdateEmailAddress
 
         if (!ApiKey::canBypassVerificationCode($this->apiKey->source)) {
             $this->apiKey->status = ApiKeyStatuses::NEED_CHECK;
-            dispatch(new SendVerificationCode($this->apiKey, Uuid::uuid4()->toString()));
+            $this->apiKey->email_check = Uuid::uuid4()->toString();
+            dispatch(new SendVerificationCode($this->apiKey, $this->apiKey->email_check));
         } else {
             $this->apiKey->status = ApiKeyStatuses::OK;
         }
